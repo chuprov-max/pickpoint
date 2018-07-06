@@ -47,5 +47,17 @@ class Directory extends Request
 
         return $rs;
     }
+    
+    /**
+     * @param string $ikn
+     * @return PostomatList
+     */
+    public function clientPostamatList($ikn)
+    {
+        return $this->__request(self::METHOD_POST, '/clientpostamatlist', PostomatList::class, [
+            'SessionId' => $this->session_id,
+            'IKN' => $ikn
+        ]);
+    }
 
 }
