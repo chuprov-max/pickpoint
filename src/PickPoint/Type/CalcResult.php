@@ -21,13 +21,12 @@ class CalcResult extends Type
      */
     function __construct(array $data)
     {
-        foreach ($data as $key => $value)
-        {
-            if($key == 'Services')
-                $this->data[$key] = new TarifList($value);
-            else
-                $this->data[$key] = new Tarif($value);
+        foreach ($data as $key => $value) {
+            if ($key == 'Services') {
+                $this->Services = new TarifList($data['Services']);
+            } else {
+                $this->{$key} = $value;
+            }
         }
-
     }
 }
